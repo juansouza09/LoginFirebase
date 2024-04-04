@@ -7,6 +7,58 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:74998177914:android:1617732b62489169e41bc3",
+        "android_client_info": {
+          "package_name": "com.jsolutions.flutterLoginTest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74998177914-7srgmqiisl00jlpf5hikegvdvjb6e03d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jsolutions.flutterLoginTest",
+            "certificate_hash": "282bc127f9783d7aa09be0b3010dff5042787fe5"
+          }
+        },
+        {
+          "client_id": "74998177914-ul9k392ipa9ne337ecve7llva0m5i4g6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jsolutions.flutterLoginTest",
+            "certificate_hash": "ae1fd7aa3ee8bddfc2c4d00510e7b2735059b412"
+          }
+        },
+        {
+          "client_id": "74998177914-jt7af20218b7mf2g01nj0n3d0f8dpi57.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0qcA2oXSJ-6zFrmrqhW3IggcI-oF9j4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "74998177914-jt7af20218b7mf2g01nj0n3d0f8dpi57.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "74998177914-gn76aarfnl27pvdtt501is0tkqapb0hj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jsolutions.flutterLoginTest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:74998177914:android:fd602a37e11d15a3e41bc3",
         "android_client_info": {
           "package_name": "com.jsolutions.flutter_login_test"
@@ -19,6 +71,14 @@
           "android_info": {
             "package_name": "com.jsolutions.flutter_login_test",
             "certificate_hash": "ae1fd7aa3ee8bddfc2c4d00510e7b2735059b412"
+          }
+        },
+        {
+          "client_id": "74998177914-gb4fu2cb509jd5s74it374opif1t46p5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jsolutions.flutter_login_test",
+            "certificate_hash": "282bc127f9783d7aa09be0b3010dff5042787fe5"
           }
         },
         {

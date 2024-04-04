@@ -1,4 +1,4 @@
-package com.jsolutions.flutter_login_test
+package com.jsolutions.flutterLoginTest
 
 import io.flutter.embedding.android.FlutterActivity
 
