@@ -64,7 +64,7 @@ class DefaultFirebaseOptions {
     projectId: 'flutter-login-cb915', // Correto conforme plist
     storageBucket: 'flutter-login-cb915.appspot.com', // Correto conforme plist
     iosClientId:
-        '330798494050-mahns2udqc6b2ultjvhlgslm1lv6b7f7.apps.googleusercontent.com',
+        '74998177914-22m2masjpk2g03q3g6haj8jge8ktn5pj.apps.googleusercontent.com',
     iosBundleId:
         'com.jsolutions.flutterLoginTest', // Corrigido para corresponder ao BUNDLE_ID
   );
