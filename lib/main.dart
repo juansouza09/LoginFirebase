@@ -38,7 +38,9 @@ class _SignInDemoState extends State<SignInDemo> {
 
   Future<void> googleLogin() async {
     try {
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final GoogleSignInAccount? googleUser = await GoogleSignIn(
+              clientId: DefaultFirebaseOptions.currentPlatform.iosClientId)
+          .signIn();
 
       if (googleUser == null) return;
       _user = googleUser;
