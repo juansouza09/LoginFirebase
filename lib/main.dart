@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import 'firebase_options.dart';
 
@@ -62,6 +65,42 @@ class _SignInDemoState extends State<SignInDemo> {
     }
   }
 
+  Future<void> appleLogin() async {
+    try {
+      final AuthorizationCredentialAppleID credential =
+          await SignInWithApple.getAppleIDCredential(
+        scopes: [
+          AppleIDAuthorizationScopes.email,
+          AppleIDAuthorizationScopes.fullName,
+        ],
+        webAuthenticationOptions: Platform.isAndroid
+            ? WebAuthenticationOptions(
+                clientId: 'com.jsolutions.flutterLogin',
+                redirectUri: Uri.parse(
+                  'https://flutter-login-cb915.firebaseapp.com/__/auth/handler',
+                ),
+              )
+            : null,
+      );
+
+      final OAuthProvider oAuthProvider = OAuthProvider('apple.com');
+      final OAuthCredential authCredential = oAuthProvider.credential(
+        idToken: credential.identityToken,
+        accessToken: credential.authorizationCode,
+      );
+
+      final userCredential =
+          await FirebaseAuth.instance.signInWithCredential(authCredential);
+      print(userCredential.user); // Imprime os detalhes do usuário logado.
+
+      setState(() {
+        _isLoggedIn = true;
+      });
+    } catch (error) {
+      print(error);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,9 +124,17 @@ class _SignInDemoState extends State<SignInDemo> {
                   ),
                 ],
               )
-            : ElevatedButton(
-                onPressed: googleLogin,
-                child: const Text('Login com Google'),
+            : Column(
+                children: [
+                  ElevatedButton(
+                    onPressed: googleLogin,
+                    child: const Text('Login com Google'),
+                  ),
+                  ElevatedButton(
+                    onPressed: appleLogin,
+                    child: const Text('Login com Apple'),
+                  ),
+                ],
               ),
       ),
     );
