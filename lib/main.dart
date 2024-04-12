@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+import 'package:the_apple_sign_in/the_apple_sign_in.dart';
 
 import 'firebase_options.dart';
 
@@ -111,6 +112,28 @@ class _SignInDemoState extends State<SignInDemo> {
     }
   }
 
+  void logIn(BuildContext context) async {
+    final AuthorizationResult result = await TheAppleSignIn.performRequests([
+      const AppleIdRequest(requestedScopes: [Scope.email, Scope.fullName])
+    ]);
+    print(result.status);
+
+    switch (result.status) {
+      case AuthorizationStatus.authorized:
+        print('Funcionou aqui ');
+        break;
+
+      case AuthorizationStatus.error:
+        print("Sign in failed: ${result.error?.localizedDescription}");
+        print('Sign in failed');
+        break;
+
+      case AuthorizationStatus.cancelled:
+        print('User cancelled');
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -141,7 +164,7 @@ class _SignInDemoState extends State<SignInDemo> {
                     child: const Text('Login com Google'),
                   ),
                   ElevatedButton(
-                    onPressed: appleLogin,
+                    onPressed: () => logIn(context),
                     child: const Text('Login com Apple'),
                   ),
                 ],
