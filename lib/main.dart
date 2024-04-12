@@ -92,12 +92,22 @@ class _SignInDemoState extends State<SignInDemo> {
       final userCredential =
           await FirebaseAuth.instance.signInWithCredential(authCredential);
       print(userCredential.user); // Imprime os detalhes do usuário logado.
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('$userCredential'),
+        ),
+      );
 
       setState(() {
         _isLoggedIn = true;
       });
     } catch (error) {
-      print(error);
+      final String errorMessage = error.toString();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Falha ao fazer login com a Apple: $errorMessage'),
+        ),
+      );
     }
   }
 
